@@ -1,4 +1,4 @@
-# Add ¬ on the position where you wish to fuzz 
+# Add FUZZ on the position where you wish to fuzz 
 # (script treats it by replacing it with each word in wordlist)
 
 import requests
@@ -20,21 +20,25 @@ def parse_headers(raw_headers: str) -> dict: #parser
     return headers
 
 lines = []
-if True:
-  line = input("Paste http headers with ¬ as fuzzing position: "\n)
+while True:
+  line = input("\nPaste http headers with FUZZ as fuzzing position (type /w to confirm): ")
   lines.append(line)
   raw = "\n".join(lines)
   headers = parse_headers(raw)
+  if line == "/w":
+    break
 
 # Processing ->
-wl = input("Enter wordlist name with its extension: ")
+wl = input("\nEnter wordlist name with its extension: ")
 with open(wl, "r") as data:
     wordlist = data.read()
 
 def replace_n_check(headers, wordlist):
-    for value in wordlist:
-        headers["¬"] = value
-        response = requests.get(url, headers=headers)
-        if respone.status_code != 403 or 404:  # <-- Filter as needed
-            print(f"\n{value} returned: {response}")
+    for value in wordlist.splitlines():
+        fuzzed = {k: v.replace ("FUZZ", value) for k, v in headers.items()}
+        response = requests.get(url, headers=fuzzed)
+        if response.status_code != 403 or 404:  # <-- Filter as needed
+            print(f"\n{value} returned: {response.status_code}")
+
+replace_n_check(headers, wordlist)
 
