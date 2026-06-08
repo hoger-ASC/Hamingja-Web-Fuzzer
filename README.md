@@ -1,5 +1,5 @@
 # Hamingja-Web-Fuzzer
-##(WIP, testing stage)
+## (WIP, to add threading functionality)
 Python HTTP bruteforce request fuzzer based on requests library
 
 ## Requirements & Usage
@@ -16,4 +16,4 @@ The script continues to check each wordlist value and returns response based on 
 
 *Consult laws and user agreements before usage.*
 
-Kudos to w3schools.com and [the official requests documentation](https://docs.python-requests.org/en/master/index.html) for syntax along with locally hosted qwen 3.5 for testing the parsing and enumeration def functions
+Acknowledgments to w3schools.com and [the official requests documentation](https://docs.python-requests.org/en/master/index.html) for syntax along with qwen 3.5/Claude4 for testing the parsing and enumeration def functions
