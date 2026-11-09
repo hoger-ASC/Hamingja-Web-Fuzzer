@@ -1,5 +1,5 @@
 # Hamingja-Web-Fuzzer
-## (WIP, to add threading functionality)
+
 Python HTTP bruteforce request fuzzer based on requests library
 
 ## Requirements & Usage
